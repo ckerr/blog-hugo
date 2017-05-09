@@ -21,9 +21,9 @@ theme = "hugo-icarus-theme"
     #bio = "Programmer"
     location = "New Orleans"
     site_description = ""
-    #copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    #avatar = "css/images/avatar.png"
-    #logo = "css/images/logo.png"
+    copyright = "" # "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    avatar = "" # "css/images/avatar.png"
+    logo = "" # "css/images/logo.png"
     disable_mathjax = false # set to true to disable MathJax
 
     # Format dates with Go's time formatting
