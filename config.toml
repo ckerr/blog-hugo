@@ -1,10 +1,10 @@
-baseurl = "https://example.org/"
+baseurl = "https://charleskerr.com/"
 languageCode = "en-us"
-title = "Icarus"
+title = "Charles Kerr's Blog"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "spf13"
+#disqusShortname = "spf13"
 # Enable Google Analytics by entering your tracking code
-googleAnalytics = ""
+#googleAnalytics = ""
 # Define the number of posts per page
 paginate = 10
 footnotereturnlinkcontents = "↩"
@@ -17,13 +17,13 @@ theme = "hugo-icarus-theme"
 
 [params]
     # Tell me who you are
-    author = "John Doe"
-    bio = "Blogger - Programmer - Gopher"
-    location = "Earth"
+    author = "Charles Kerr"
+    #bio = "Programmer"
+    location = "New Orleans"
     site_description = ""
-    copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    avatar = "css/images/avatar.png"
-    logo = "css/images/logo.png"
+    #copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    #avatar = "css/images/avatar.png"
+    #logo = "css/images/logo.png"
     disable_mathjax = false # set to true to disable MathJax
 
     # Format dates with Go's time formatting
@@ -56,14 +56,14 @@ theme = "hugo-icarus-theme"
 
 # Enter a link for the follow button on the left
 [params.profile]
-    follow_button = "https://github.com/digitalcraftsman"
+    follow_button = "https://github.com/charlesk"
 
 
 [social]
 # Add your social network accounts to the profile section on the left
 # by entering your username. The links to your account will be
 # created automatically.
-    github          = "digitalcraftsman"
+    github          = "charlesk"
     gitlab          = ""
     bitbucket       = ""
     jsfiddle        = ""
@@ -81,7 +81,7 @@ theme = "hugo-icarus-theme"
     wordpress       = ""
     tumblr          = ""
     xing            = ""
-    linkedin        = ""
+    linkedin        = "www.linkedin.com/in/charles-kerr"
     slideshare      = ""
     stackoverflow   = ""
     reddit          = ""
