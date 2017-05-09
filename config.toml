@@ -21,9 +21,9 @@ theme = "hugo-icarus-theme"
     #bio = "Programmer"
     location = "New Orleans"
     site_description = ""
-    copyright = "" # "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    copyright = "Charles Kerr. Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
     avatar = "css/images/avatar.png"
-    logo = "" # "css/images/logo.png"
+    logo = "css/images/logo.png"
     disable_mathjax = false # set to true to disable MathJax
 
     # Format dates with Go's time formatting
@@ -81,7 +81,7 @@ theme = "hugo-icarus-theme"
     wordpress       = ""
     tumblr          = ""
     xing            = ""
-    linkedin        = "www.linkedin.com/in/charles-kerr"
+    linkedin        = "charles-kerr"
     slideshare      = ""
     stackoverflow   = ""
     reddit          = ""
@@ -90,7 +90,7 @@ theme = "hugo-icarus-theme"
     facebook        = ""
     facebook_admin  = ""
     twitter_domain  = ""
-    twitter         = "spf13"
+    twitter         = ""
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
