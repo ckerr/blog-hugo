@@ -1,5 +1,5 @@
 +++
-banner = ""
+banner = "banner.jpg"
 categories = []
 date = "2017-05-09T11:50:43-05:00"
 description = ""
@@ -25,3 +25,5 @@ As the GitHub Pages [custom domain docs](https://help.github.com/articles/using-
 
 I set this up with [Namecheap](https://namecheap.com) as my registrar, so after 
 As [David Singer](http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/) writes, 
+
+![Advanced DNS](advanced-dns.png "A custom domain at namecheap, configured for GitHub Pages")
