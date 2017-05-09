@@ -56,15 +56,14 @@ The next step was to have Hugo initialize the site. That's the sole purpose of t
 
 The stdout from `hugo new` is right -- it's time to pick a theme. I chose [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme), whose README steps tell me to clone it into themes/ and then copy its config and l10n files:
 
-    charles@gamera ~/s/charlesk-hugo> cd themes/
-    charles@gamera ~/s/c/themes> git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git
-    Cloning into 'hugo-icarus-theme'...
+    charles@gamera /t/charlesk-hugo> git submodule add https://github.com/digitalcraftsman/hugo-icarus-theme.git themes/hugo-icarus-theme
+    Cloning into '/tmp/charlesk-hugo/themes/hugo-icarus-theme'...
     remote: Counting objects: 938, done.
     remote: Total 938 (delta 0), reused 0 (delta 0), pack-reused 938
     Receiving objects: 100% (938/938), 2.31 MiB | 0 bytes/s, done.
     Resolving deltas: 100% (608/608), done.
-
-    charles@gamera ~/s/c/themes> cd ..
+    charles@gamera /t/charlesk-hugo> ls themes/
+    hugo-icarus-theme/
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/data/l10n.toml data/
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/config.toml config.toml 
 
@@ -132,15 +131,16 @@ Now that the website is loading, the first post is showing some loose ends: ther
 
 ### Cleaning up the Front Matter
 
-The default title was just a stripped version of the filename. Let's tweak this to capitalize it properly:
+The default title was just a stripped version of the filename. Let's tweak this to capitalize it properly
 
     -title = "bootstrapping this site"
     +title = "Bootstrapping This Site"
 
-And, finally, add some tags:
+and to add some tags:
 
     -tags = []
     +tags = ["hugo", "github", "howto"]
+
 
 # Other Loose Ends
 
@@ -203,5 +203,27 @@ and add these lines to config.toml:
          link   = "tags/"
 
 This put a 'resume' link in the top menu.
+
+### Future clones
+
+If you clone my repo, you may get a blank page served to you because the themes/hugo-icarus-theme/ folder is empty. Remember, since that's a submodule, we need to clone recursively:
+
+    charles@gamera ~/src> git clone --recursive git@github.com:charlesk/charlesk-hugo.git
+    Cloning into 'charlesk-hugo'...
+    remote: Counting objects: 73, done.
+    remote: Compressing objects: 100% (45/45), done.
+    remote: Total 73 (delta 19), reused 70 (delta 19), pack-reused 0
+    Receiving objects: 100% (73/73), 3.89 MiB | 5.70 MiB/s, done.
+    Resolving deltas: 100% (19/19), done.
+    Submodule 'themes/hugo-icarus-theme' (https://github.com/digitalcraftsman/hugo-icarus-theme.git) registered for path 'themes/hugo-icarus-theme'
+    Cloning into '/home/charles/src/charlesk-hugo/themes/hugo-icarus-theme'...
+    remote: Counting objects: 938, done.        
+    remote: Total 938 (delta 0), reused 0 (delta 0), pack-reused 938        
+    Receiving objects: 100% (938/938), 2.31 MiB | 3.85 MiB/s, done.
+    Resolving deltas: 100% (608/608), done.
+    Submodule path 'themes/hugo-icarus-theme': checked out '855e14be1ceabc65a7de8a16b8c1717157d9bef9'
+
+Now the content will work again.
+
 
 And that's it! Those are the steps I followed to get this site started using Hugo and the Icarus theme. In the next post I'll discuss hosting the static content on Github's Personal Pages.
