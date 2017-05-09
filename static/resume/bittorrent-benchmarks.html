@@ -1,0 +1,539 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head><body>
+<font <h1="" face="arial">Linux BitTorrent Client Comparative Tests with Single Torrent
+<h2>Performance Constrained by Low-Speed 300 KB/s Down, 39 KB/s Up ADSL Provisioning</h2>
+<p><i>Benchmarks conducted 18-19, 22-24, 26-28 February; 01-07, 15-22 March 2010</i></p>
+<br></font>
+<table style="font-family: sans;" cellspacing="2" cellpadding="2" border="1">
+	<tbody><tr>
+		<th>BitTorrent Client</th>
+		<th>Time to Download<br>ubuntu-9.10-desktop<br>i386.iso.torrent</th>
+		<th><a href="http://www.pixelbeat.org/scripts/ps_mem.py">Memory Use</a><br>While Downloading</th>
+		<th>User CPU<br>MM:SS</th>
+		<th>Sys CPU<br>MM:SS</th>
+		<th>Engine</th>
+		<th>Interface</th>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittornado.com/">BitTornado</a> 0.3.18 1st run</td>
+		<td align="right">53:33</td>
+		<td align="right">19.3 MiB</td>
+		<td align="right">2:15</td>
+		<td align="right">0:53</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittornado.com/">BitTornado</a> 0.3.18 2nd run</td>
+		<td align="right">59:34</td>
+		<td align="right">79.8 MiB</td>
+		<td align="right">7:51</td>
+		<td align="right">3:47</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittornado.com/">BitTornado</a> 0.3.18 3rd run</td>
+		<td align="right">59:05</td>
+		<td align="right">90.3 MiB</td>
+		<td align="right">8:36</td>
+		<td align="right">3:37</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2.0 1st run <i>[1]</i></td>
+		<td align="right">57:23</td>
+		<td align="right"> 49.2 MiB</td>
+		<td align="right">3:25</td>
+		<td align="right">0:53</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2.1 1st run</td>
+		<td align="right">59:03</td>
+		<td align="right"> 46.6 MiB</td>
+		<td align="right">3:47</td>
+		<td align="right">1:00</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.9</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2.1 2nd run</td>
+		<td align="right">58:49</td>
+		<td align="right"> 46.6 MiB</td>
+		<td align="right">3:24</td>
+		<td align="right">0:58</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.9</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2900-dev 1st run <i>[2]</i></td>
+		<td align="right">58:29</td>
+		<td align="right"> 38.6 MiB</td>
+		<td align="right">3:20</td>
+		<td align="right">0:54</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2900-dev 2nd run</td>
+		<td align="right">56:58</td>
+		<td align="right"> 38.8 MiB</td>
+		<td align="right">3:27</td>
+		<td align="right">0:55</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://deluge-torrent.org/">Deluge</a> 1.2900-dev 3rd run <i>[3]</i></td>
+		<td align="right">57:00</td>
+		<td align="right"> 38.3 MiB</td>
+		<td align="right">3:12</td>
+		<td align="right">0:55</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.15.0</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://ktorrent.org/">KTorrent</a> 3.3.4 1st run</td>
+		<td align="right">56:16</td>
+		<td align="right">19.9 MiB</td>
+		<td align="right">N/A <i>[4]</i></td>
+		<td align="right">N/A</td>
+		<td>Built-in</td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://ktorrent.org/">KTorrent</a> 3.3.4 2nd run</td>
+		<td align="right">57:41</td>
+		<td align="right">49.6 MiB</td>
+		<td align="right">2:28</td>
+		<td align="right">1:50</td>
+		<td>Built-in</td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://ktorrent.org/">KTorrent</a> 3.3.4 3rd run</td>
+		<td align="right">58:47</td>
+		<td align="right">55.5 MiB</td>
+		<td align="right">2:23</td>
+		<td align="right">1:38</td>
+		<td>Built-in</td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://ktorrent.org/">KTorrent</a> 3.3.4 4th run</td>
+		<td align="right">57:57</td>
+		<td align="right">51.9 MiB</td>
+		<td align="right">2:12</td>
+		<td align="right">1:35</td>
+		<td>Built-in</td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittorrent.com/">Mainline</a> 4.4.0 1st run</td>
+		<td align="right">54:26</td>
+		<td align="right">40.8 MiB</td>
+		<td align="right">3:18</td>
+		<td align="right">1:02</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittorrent.com/">Mainline</a> 4.4.0 2nd run</td>
+		<td align="right">55:13</td>
+		<td align="right">27.6 MiB</td>
+		<td align="right">3:39</td>
+		<td align="right">1:17</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.bittorrent.com/">Mainline</a> 4.4.0 3rd run</td>
+		<td align="right">54:52</td>
+		<td align="right">29.9 MiB</td>
+		<td align="right">3:51</td>
+		<td align="right">1:28</td>
+		<td>Built-in</td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.monsoon-project.org/jaws/">Monsoon</a> 0.21 1st run <i>[5]</i></td>
+		<td align="right">913:59</td>
+		<td align="right">34.6 MiB</td>
+		<td align="right">158:57</td>
+		<td align="right">19:18</td>
+		<td><a href="http://www.monotorrent.com/">MonoTorrent 0.72</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.monsoon-project.org/jaws/">Monsoon</a> 0.21 2nd run</td>
+		<td align="right">75:39</td>
+		<td align="right">30.4 MiB</td>
+		<td align="right">14:34</td>
+		<td align="right">2:52</td>
+		<td><a href="http://www.monotorrent.com/">MonoTorrent 0.72</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.monsoon-project.org/jaws/">Monsoon</a> 0.21 3rd run</td>
+		<td align="right">55:30</td>
+		<td align="right">33.2 MiB</td>
+		<td align="right">11:05</td>
+		<td align="right">2:31</td>
+		<td><a href="http://www.monotorrent.com/">MonoTorrent 0.72</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.monsoon-project.org/jaws/">Monsoon</a> 0.21 4th run</td>
+		<td align="right">122.55</td>
+		<td align="right">32.8 MiB</td>
+		<td align="right">24:06</td>
+		<td align="right">4:22</td>
+		<td><a href="http://www.monotorrent.com/">MonoTorrent 0.72</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://qbittorrent.sourceforge.net/">qBittorrent</a> 2.1.5 1st run</td>
+		<td align="right">55:26</td>
+		<td align="right">33.2 MiB</td>
+		<td align="right">2:50</td>
+		<td align="right">0:38</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://qbittorrent.sourceforge.net/">qBittorrent</a> 2.1.5 2nd run</td>
+		<td align="right">55:23</td>
+		<td align="right">36.9 MiB</td>
+		<td align="right">3:04</td>
+		<td align="right">0:42</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://qbittorrent.sourceforge.net/">qBittorrent</a> 2.1.6 1st run</td>
+		<td align="right">56:28</td>
+		<td align="right">41.0 MiB</td>
+		<td align="right">3:07</td>
+		<td align="right">0:44</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.8</a></td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://qbittorrent.sourceforge.net/">qBittorrent</a> 2.2.0 1st run</td>
+		<td align="right">56:28</td>
+		<td align="right">36.4 MiB</td>
+		<td align="right">3:01</td>
+		<td align="right">0:42</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.9</a></td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://qbittorrent.sourceforge.net/">qBittorrent</a> 2.2.0 2nd run</td>
+		<td align="right">55:15</td>
+		<td align="right">34.6 MiB</td>
+		<td align="right">2:52</td>
+		<td align="right">0:40</td>
+		<td><a href="http://www.rasterbar.com/products/libtorrent/">rasterbar 0.14.9</a></td>
+		<td><a href="http://www.qtsoftware.com/">Qt</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://libtorrent.rakshasa.no/">rTorrent</a> 0.8.6 1st run <i>[6]</i></td>
+		<td align="right">52:52</td>
+		<td align="right"><i>(invalid: 16.1 MiB [*])</i></td>
+		<td align="right">0:16</td>
+		<td align="right">0:19</td>
+		<td><a href="http://libtorrent.rakshasa.no/">rakshasa 0.12.6</a></td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://libtorrent.rakshasa.no/">rTorrent</a> 0.8.6 2nd run <i>[7]</i></td>
+		<td align="right">55:25</td>
+		<td align="right"><i>(invalid: 9.2 MiB [*])</i></td>
+		<td align="right">0:47</td>
+		<td align="right">0:22</td>
+		<td><a href="http://libtorrent.rakshasa.no/">rakshasa 0.12.6</a></td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://libtorrent.rakshasa.no/">rTorrent</a> 0.8.6 3rd run</td>
+		<td align="right">53:53</td>
+		<td align="right"><i>(invalid: 5.8 MiB [*])</i></td>
+		<td align="right">0:49</td>
+		<td align="right">0:22</td>
+		<td><a href="http://libtorrent.rakshasa.no/">rakshasa 0.12.6</a></td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://libtorrent.rakshasa.no/">rTorrent</a> 0.8.6 4th run</td>
+		<td align="right">53:44</td>
+		<td align="right"><i>(invalid: 4.4 MiB [*])</i></td>
+		<td align="right">0:48</td>
+		<td align="right">0:22</td>
+		<td><a href="http://libtorrent.rakshasa.no/">rakshasa 0.12.6</a></td>
+		<td><a href="http://en.wikipedia.org/wiki/Ncurses">Curses</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.76 1st run</td>
+		<td align="right">55:29</td>
+		<td align="right">10.4 MiB</td>
+		<td align="right">1:30</td>
+		<td align="right">0:31</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.90 1st run</td>
+		<td align="right">57:21</td>
+		<td align="right">10.1 MiB</td>
+		<td align="right">1:33</td>
+		<td align="right">0:45</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.91 1st run</td>
+		<td align="right">60:20</td>
+		<td align="right">N/A<i>[8]</i></td>
+		<td align="right">1:15</td>
+		<td align="right">0:47</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.91 2nd run</td>
+		<td align="right">60:40</td>
+		<td align="right">11.2 MiB</td>
+		<td align="right">1:15</td>
+		<td align="right">0:45</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.91 3rd run</td>
+		<td align="right">59.46</td>
+		<td align="right">10.6 MiB</td>
+		<td align="right">1:40</td>
+		<td align="right">0:47</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<!--<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.91+ svn 10301 1st run</td>
+		<td align="right">56:22</td>
+		<td align="right">10.2 MiB</td>
+		<td align="right">2:19</td>
+		<td align="right">0:43</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>-->
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.92 1st run</td>
+		<td align="right">54:54</td>
+		<td align="right">10.3 MiB</td>
+		<td align="right">1:15</td>
+		<td align="right">0:34</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.92 2nd run</td>
+		<td align="right">55:27</td>
+		<td align="right">10.5 MiB</td>
+		<td align="right">1:11</td>
+		<td align="right">0:34</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.92+ svn 10396 1st run</td>
+		<td align="right">54:32</td>
+		<td align="right">11.7 MiB</td>
+		<td align="right">1:27</td>
+		<td align="right">0:33</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.transmissionbt.com/">Transmission</a> 1.92+ svn 10396 2nd run</td>
+		<td align="right">54:35</td>
+		<td align="right">10.8 MiB</td>
+		<td align="right">1:13</td>
+		<td align="right">0:33</td>
+		<td><a href="http://www.transmissionbt.com/">libtransmission</a></td>
+		<td><a href="http://www.gtk.org/">GTK+</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.utorrent.com/">uTorrent (Wine)</a> 2.0 (18620) 1st run <i>[9]</i></td>
+		<td align="right">54:12</td>
+		<td align="right">26.7 MiB</td>
+		<td align="right">2:06</td>
+		<td align="right">1:37</td>
+		<td>Built-in</td>
+		<td><a href="http://wiki.winehq.org/">Wine</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.utorrent.com/">uTorrent (Wine)</a> 2.0 (18620) 2nd run</td>
+		<td align="right">53:52</td>
+		<td align="right">20.8 MiB</td>
+		<td align="right">2:03</td>
+		<td align="right">1:25</td>
+		<td>Built-in</td>
+		<td><a href="http://wiki.winehq.org/">Wine</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.utorrent.com/">uTorrent (Wine)</a> 2.0 (18620) 3rd run</td>
+		<td align="right">55:03</td>
+		<td align="right">26.5 MiB</td>
+		<td align="right">2:12</td>
+		<td align="right">1:44</td>
+		<td>Built-in</td>
+		<td><a href="http://wiki.winehq.org/">Wine</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.vuze.com/">Vuze</a> 4.3.1.4 1st run</td>
+		<td align="right">53:40</td>
+		<td align="right">246.5 MiB</td>
+		<td align="right">5:44</td>
+		<td align="right">0:51</td>
+		<td>Built-in</td>
+		<td><a href="http://www.eclipse.org/swt/">Java SWT</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.vuze.com/">Vuze</a> 4.3.1.4 Classic View 1st run</td>
+		<td align="right">53:58</td>
+		<td align="right">243.5 MiB</td>
+		<td align="right">5:01</td>
+		<td align="right">0:47</td>
+		<td>Built-in</td>
+		<td><a href="http://www.eclipse.org/swt/">Java SWT</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://www.vuze.com/">Vuze</a> 4.3.1.4 Classic View 2nd run</td>
+		<td align="right">53:54</td>
+		<td align="right">232.5 MiB</td>
+		<td align="right">4:54</td>
+		<td align="right">0:48</td>
+		<td>Built-in</td>
+		<td><a href="http://www.eclipse.org/swt/">Java SWT</a></td>
+	</tr>
+
+</tbody></table>
+<br>
+<br>
+<hr>
+<font face="arial">
+<p></p><h2>Methodology</h2><p></p>
+<p><b>System:</b> Asus A8V Deluxe mainboard, AMD Athlon(tm) 64 Processor 3200+. 2 GB DDR RAM</p>
+<p><b>Network:</b> 10/100 Ethernet, IPv4 NAT, ClarkConnect linux gateway/firewall/router PC<i>[10]</i>, AT&amp;T branded <a href="http://www.2wire.com/index.php?p=106">2Wire 2701HG-B</a> router/modem set to Bridged Ethernet mode, <i>i.e.,</i> only the modem component is active</p>
+<p><b>Broadband:</b> AT&amp;T ADSL provisioned as 300/39 KB/s; 240/39 KB/s typically best actual</p>
+<p><b>Operating System:</b> <a href="http://fedoraproject.org/">Fedora 12 Linux</a> - #1 SMP i686 athlon i386 GNU/Linux</p>
+<p><b>Kernels</b><i>[11]</i><b>:</b> kernel-PAE-2.6.32.8-58.fc12.i686; kernel-PAE-2.6.32.9-67.fc12.i686; kernel-PAE-2.6.32.9-70.fc12.i686</p>
+<p><b>Conditions:</b> </p><ul><li>Only one client was running per test. All tests were run on the same workstation, described above. 
+</li><li>No other systems in the LAN were active on the Internet during tests, except for IRC chat (no DCC) by one person. 
+</li><li>All tests were performed between 09:00 and 01:00 EST. 
+</li><li>Each client was tested at least three times, never in back-to-back sequence, and usually on different days.
+</li><li>Each test was run under the unix <a href="http://en.wikipedia.org/wiki/Time_%28Unix%29">time</a> utility as: <i>time [program-name] [options] <a href="http://www.ubuntu.com/getubuntu/downloadmirrors#bt">ubuntu-9.10-desktop-i386.iso.torrent</a></i>. 
+</li><li>Each client was tested <i><b>using its initial setup defaults,</b></i>
+ with two exceptions, made during a previous launch to edit preferences 
+where possible, or incorporated into the command line when required: 
+<blockquote>(1) Each client was configured to use port 51421 (both TCP and UDP available); and 
+<br>(2) Each client was configured to save torrents in a client-named directory on the ext4 filesystem used.</blockquote>
+</li><li><a href="http://www.pixelbeat.org/scripts/ps_mem.py">Memory use</a> <i>[12]</i> was captured at 98% completion of each test run, by manually invoking: <i>python ps_mem.py [client-name]</i> 
+</li><li>Immediately upon 100% completion and switch to seeding, each client was quit and its timed results recorded on exit.
+</li><li>Multiple client updates were released during the test span. I 
+left all results in the table to show release variability in an active 
+development environment.
+</li></ul><p></p>
+<br>
+<br>
+<hr>
+<font face="arial">
+<p></p><h2>Comments</h2><p></p>
+<p>These tests provide a decently rigorous picture of the capabilities 
+and differences among several popular linux bittorrent clients, running 
+on one system under one linux distribution over one type of ADSL 
+broadband provisioning. Note that the tests are all for a single 
+torrent, chosen for its large and well seeded swarm to provide as much 
+reproducibility as any bittorrent swarm can likely offer. <b>Among the things these tests do <i>not</i> provide are:</b><br>
+</p><blockquote>(1) Scaling results for clients under multiple torrent loads;
+<br>(2) Performance differences between clients when each has been optimally configured beyond initial setup defaults;
+<br>(3) Performance differences between clients on more generously provisioned broadband;
+<br>(4) Features or performance of daemon, remote, web ui, or other variants on the standard client; and
+<br>(5) Effects (if any) of different linux distributions upon bittorrent client performance.
+</blockquote>The single most significant performance constraint of these
+ tests is the relatively low broadband speed as provisioned by the ISP. 
+At such low speeds, choice of bittorrent client appears to make little 
+difference in download metrics, leaving resource use and feature set as 
+the primary salient factors. At this time, in this location, AT&amp;T is
+ not known to employ bittorrent throttling.
+<br>
+<br>Thanks to Charles Kerr for posting an <a href="http://pastehtml.com/view/091108Kw3uDGmn.html">earlier version</a>
+ of these tests, upon which this version is based. Additional thanks to 
+developers of various clients, whose help and suggestions improved these
+ tests in many ways. All errors and inconsistencies in <i>these</i> tests are the fault of the author, Lacrocivious Acrophosist, who probably made the error specifically to annoy <i>you,</i> personally.
+<p></p>
+<br>
+<hr>
+<p><i><b>Special Note</b></i></p>
+<p><i>[*]</i>	Memory use reports for rTorrent by this <a href="http://www.pixelbeat.org/scripts/ps_mem.py">python script</a> <i><b>are not representative of actual memory use by rTorrent while downloading.</b></i>
+ Developers involved with multiple competing clients tested here noted 
+this discrepancy. One stated, "rTorrent relies more upon the [kernel] 
+page cache table than most other clients, and so memory usage reported 
+in the table does not necessarily reflect how much free memory a system 
+would need to run rTorrent with satisfactory results."
+<br>
+<br>During tests, rTorrent's <i>info</i> screen confirms its own 
+reported memory use differs significantly from that reported by the 
+python script. That screen's "Memory usage:" field varies dynamically 
+during download between ~22.0 MB and ~40.0 MB, cycling in 30-second 
+intervals, most often from a "floor" of ~25.0 MB and increasing to ~36.0
+ MB before falling back to ~25.0 MB and repeating. Thus, a rough 
+estimate of <i>actual</i> memory use in these tests is ~38 MB.
+<br>
+<br>
+</p><hr>
+<p><i><b>Notes</b></i></p>
+<p><i>[1]</i>	Deluge 1.2.0 had an overdownloading bug frowned upon by 
+some trackers; this issue is fixed in 1.2.1 and later versions. The key 
+to this fix is libtorrent-rasterbar 0.14.9, more than changes to Deluge 
+itself.</p>
+<p><i>[2]</i>	Awaiting solution to a trivial 1.2.1 build problem on the 
+test system, two interim runs used 1.2900-dev with libtorrent-rasterbar 
+0.14.8.</p>
+<p><i>[3]</i>	Deluge recently switched from Subversion to Git; this 
+build is from a fresh git pull of the master branch, incorporating 
+libtorrent-rasterbar 0.15.0.
+</p><p><i>[4]</i>	KTorrent forks on load, preventing the <b>time</b> utility from recording accurate start/end/CPU-use. Memory use difference on this run <i>may</i> be due to this fork (the <i>python ps_mem.py ktorrent</i> report was captured, but the <b>time</b> report was not). Subsequent tests were run with <b>time</b> using the <i>ktorrent --nofork</i> option, which enables <b>time</b> functionality.</p>
+<p><i>[5]</i>	Monsoon has a poor endgame strategy. Repeatedly but not 
+always, it would download to about 99% completion and then hang 
+indefinitely on the last few pieces. Monsoon appears ill-suited for 
+normal use, and was tested here only for comparison with <a href="http://pastehtml.com/view/091108Kw3uDGmn.html">prior tests.</a>
+</p><p><i>[6]</i>	This test run used rTorrent from the Fedora 12 
+repository due to a naming conflict between libtorrent-rasterbar and 
+libtorrent-rakshasa, before I found a workaround.
+</p><p><i>[7]</i>	This is the same libtorrent-rakshasa version as in the
+ Fedora 12 repository, but both rTorrent and libtorrent-rakshasa were 
+built from project source for this and subsequent test runs.
+</p><p><i>[8]</i>	<a href="http://www.urbandictionary.com/define.php?term=pebcak">PEPCAK</a> attack. Terminal was in the wrong directory to find <i>python ps_mem.py</i>, and by the time I realized it the torrent had finished downloading.
+</p><p><i>[9]</i>	uTorrent memory use only. Wine components reported 
+separate memory use: explorer.exe, 3.8 MiB; services.exe, 1.2 MiB; 
+winedevice.exe, 2.8 MiB; and wineserver, 2.1 MiB; total 9.9 MiB. Wine 
+version: wine-1.1.38-1.fc12.i686.
+</p><p><i>[10]</i>	ClarkConnect have rebranded themselves <a href="http://www.clearfoundation.com/Software/overview.html">ClearOS.</a> I have found their products exemplary since I began using them in 2003 (they don't pay me). 
+</p><p><i>[11]</i>	Normal system updates, including the Fedora 12 
+updates-testing repository, were enabled during the test runs, and 
+kernels changed during that span. Client tests were significantly 
+staggered within the testing time span, and none of the operating system
+ changes appeared to have any observable effect upon any client 
+performance.
+</p></font><p><font face="arial"><i>[12]</i>	I do not pretend to fully understand this python script. I am not a programmer. The <a href="http://www.pixelbeat.org/scripts/ps_mem.py">script</a> is well commented and used here for continuity with <a href="http://pastehtml.com/view/091108Kw3uDGmn.html">prior tests.</a>
+<br></font>
+<br>
+</p><hr>
+
+</font></body></html>

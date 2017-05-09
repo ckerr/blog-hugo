@@ -1,0 +1,92 @@
+html, body {
+	font-family: "Helvetica";
+	font-size: 11pt;
+	font-weight: normal;
+}
+
+.vcard .name {
+	font-size: xx-large;
+}
+.vcard .contacts {
+	font-size: smaller;
+}
+.vcard .contacts > * {
+	display: inline-block;
+	height: 20px;
+}
+.vcard .contacts .contact:nth-child(3n+3) { 
+	display: inline;
+}
+.vcard .contacts .contact:nth-child(3n+3):after { 
+	content: "\A";
+	white-space: pre; 
+}
+.vcard .contact * {
+	vertical-align: middle;
+}
+.vcard .contact img {
+	padding-right: 4px;
+}
+.vcard .contact a {
+	padding-right: 12px;
+}
+
+.publications > ol {
+	padding: 0px 0px 0px 16px;
+	margin: 0px;
+}
+.publications > ol > li {
+	padding-top: 8px;
+}
+
+.section {
+	padding: 8px 0px;
+}
+
+.resume {
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+}
+.resume > .entry {
+	flex: 1;
+	display: flex;
+}
+.resume > .entry > .title {
+	padding-right: 16px;
+	flex: 0 0 200px;
+	text-align: right;
+	vertical-align: middle;
+	font-weight: bolder;
+}
+.resume > .entry > .title.highlight {
+	font-size: smaller;
+}
+.resume > .entry > .section.title {
+	font-size: larger;
+}
+.resume > .entry > .section.text {
+	height: 1px;
+	border-bottom: 1px solid #bbb;
+}
+
+.resume > .entry .text {
+	flex: 20;
+	max-width: 650px;
+}
+
+.resume > .entry.jobinfo {
+	padding-top: 4px;
+	padding-bottom: 4px;
+        font-size: larger;
+	font-weight: bolder;
+}
+.resume > .entry.jobinfo > .job {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.resume > .entry.jobinfo > .job > .when {
+	font-size: smaller;
+}
+

@@ -46,6 +46,11 @@ theme = "hugo-icarus-theme"
 
 [[params.menu]]
     before = false
+    label  = "Resume"
+    link   = "resume/"
+
+[[params.menu]]
+    before = false
     label  = "Tags"
     link   = "tags/"
 
