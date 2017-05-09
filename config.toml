@@ -23,7 +23,7 @@ theme = "hugo-icarus-theme"
     site_description = ""
     copyright = "Charles Kerr. Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
     avatar = "images/avatar.jpg"
-    logo = "css/images/logo.png"
+    logo = "" #css/images/logo.png"
     disable_mathjax = false # set to true to disable MathJax
 
     # Format dates with Go's time formatting
