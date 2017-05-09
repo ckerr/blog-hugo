@@ -6,7 +6,7 @@ description = "I built this site with Hugo. This is how I did it."
 images = []
 menu = ""
 tags = ["howto", "hugo", "git", "github"]
-title = "Bootstrapping This Site"
+title = "Bootstrapping This Site with Hugo"
 
 +++
 
