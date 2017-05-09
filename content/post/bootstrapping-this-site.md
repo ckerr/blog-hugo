@@ -89,23 +89,55 @@ Line 29 there reads:
 
     <a id="profile-anchor" href="javascript:;"><img class="avatar" src="{{ .Site.Params.avatar | absURL }}"><i class="fa fa-caret-down"></i></a>
 
-So it looks like we can't just comment out the avatar. Let's set it to an empty string for now:
+So it looks commenting out the avatar is one shortcut we can't take. {{{config.toml}}} had the default avatar in {{{css/images/avatar.png}}}, which according to {{{find ./ -name "css"}}}, is in {{{./themes/hugo-icarus-theme/static/css}}}. So I'll take my gravatar and copy it to there. YMMV on this command, obviously, but I used:
 
+    cp ~/Pictures/avatar.png ./themes/hugo-icarus-theme/static/css/images/avatar.png
+
+...and then re-enabled the avatar:
+
+    diff --git a/config.toml b/config.toml
+    index 1f55e6d..af0b5ed 100644
     --- a/config.toml
     +++ b/config.toml
-    @@ -21,9 +21,9 @@ theme = "hugo-icarus-theme"
-         #bio = "Programmer"
+    @@ -22,7 +22,7 @@ theme = "hugo-icarus-theme"
          location = "New Orleans"
          site_description = ""
-    -    #copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    -    #avatar = "css/images/avatar.png"
-    -    #logo = "css/images/logo.png"
-    +    copyright = "" # "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    +    avatar = "" # "css/images/avatar.png"
-    +    logo = "" # "css/images/logo.png"
+         copyright = "" # "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
+    -    avatar = "" # "css/images/avatar.png"
+    +    avatar = "css/images/avatar.png"
+         logo = "" # "css/images/logo.png"
          disable_mathjax = false # set to true to disable MathJax
- 
-         # Format dates with Go's time formatting
 
 Now we restart {{{hugo server --buildDrafts -t hugo-icarus-theme}}} and try again.
+
+Success! We have a page... but no github or linkedin links? Let's find out why. Since Hugo themes are usually hosted on github, "linkedin" will be the rarer key. Let's search for that:
+
+    charles@gamera ~/s/c/t/hugo-icarus-theme> grep --files-with-matches -r linkedin *
+    exampleSite/config.toml
+    layouts/partials/social.html
+    static/css/font-awesome.min.css
+    static/fonts/fontawesome-webfont.ttf
+    static/fonts/FontAwesome.otf
+
+We already know about config.tml, and the three fontawesome hits are probably some font that includes the linkedin logo, so that conveniently leaves one suspect, {{{social.html}}}. Looking at that, we find:
+
+    {{ with .Site.Social.linkedin }}
+    <td><a href="//linkedin.com/in/{{.}}" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+    {{ end }}
+
+This looks consistent with the .Site.Foo.bar nomenclature we found earlier when debugging the no-avatar-breaks-page issue above, so where's the problem? Let's see where social.html is included from:
+
+    charles@gamera ~/s/c/t/hugo-icarus-theme> ag "\"social\""
+    layouts/partials/profile.html
+    33:          {{ partial "social" . }}
+
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/charlesk" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+<td><a href="//linkedin.com/in/www.linkedin.com/in/charles-kerr" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
+
+
+
 
