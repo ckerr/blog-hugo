@@ -94,7 +94,7 @@ Time to see what the output looks like, by running Hugo in server mode:
 
 ### Commit in Haste, Debug at Leisure
 
-Oops, no content. An empty page. Let's see what's going on in header.html:29 that the error mentioned:
+Oops, no content -- an empty page. Let's see what's going on in header.html:29 that the error mentioned:
 
     charles@gamera ~/s/charlesk-hugo> sed -n 28,30p (find ./ -name header.html)
           <div class="profile" id="profile-nav">
@@ -103,11 +103,13 @@ Oops, no content. An empty page. Let's see what's going on in header.html:29 tha
 
 (NB: the parenthetical syntax above might look confusing if you're not using [fish](https://fishshell.com/). The bashism version is `$(find ./ -name header.html)` or `` `find ./ -name header.html` ``)
 
-Clearly, commenting out the avatar a few steps ago was not such a shortcut after all. I'll revert config.toml to restore the default location (`css/images/avatar.png`) and put my avatar there.
+Clearly, commenting out the avatar a few steps ago was not such a shortcut after all. I'll put my avatar under the static/ directory and tell config.toml about it:
 
-    charles@gamera ~/s/charlesk-hugo> find ./ -name avatar.png
-    ./themes/hugo-icarus-theme/static/css/images/avatar.png
-    charles@gamera ~> cp path/to/real/avatar.png ./themes/hugo-icarus-theme/static/css/images/avatar.png
+    charles@gamera ~/s/charlesk-hugo> mkdir -p static/images
+    charles@gamera ~/s/charlesk-hugo> cp path/to/real/avatar.jpg ./static/images/avatar.jpg
+    charles@gamera ~/s/charlesk-hugo> vi config.toml # editing occurs...
+    charles@gamera ~/s/charlesk-hugo> grep avatar config.toml
+    avatar = "images/avatar.jpg"
 
 Now I try `hugo server --buildDrafts -t hugo-icarus-theme` again and... success!
 
