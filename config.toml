@@ -1,4 +1,4 @@
-baseurl = "https://charleskerr.com/"
+baseurl = "http://charleskerr.com/"
 languageCode = "en-us"
 title = "Charles Kerr's Blog"
 # Enable comments by entering your Disqus shortname
