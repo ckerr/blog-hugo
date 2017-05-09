@@ -1,7 +1,0 @@
-[submodule "themes/hugo-icarus-theme"]
-	path = themes/hugo-icarus-theme
-	url = https://github.com/digitalcraftsman/hugo-icarus-theme.git
-[submodule "public"]
-	path = public
-	url = git@github.com:charlesk/charlesk.github.io.git
-	branch = master
