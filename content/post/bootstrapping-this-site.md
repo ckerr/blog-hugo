@@ -5,7 +5,7 @@ date = "2017-05-09T07:59:31-05:00"
 description = "I built this site with Hugo. This is how I did it."
 images = []
 menu = ""
-tags = ["hugo", "howto", "github"]
+tags = ["howto", "hugo", "git", "github"]
 title = "Bootstrapping This Site"
 
 +++
