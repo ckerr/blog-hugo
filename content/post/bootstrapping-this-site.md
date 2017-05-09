@@ -1,26 +1,30 @@
 +++
-banner = ""
+banner = "banners/bootstrapping-this-site.jpg"
 categories = []
 date = "2017-05-09T07:59:31-05:00"
-description = ""
+description = "I built this site with Hugo. This is how I did it."
 images = []
 menu = ""
-tags = []
-title = "bootstrapping this site"
+tags = ["hugo", "howto", "github"]
+title = "Bootstrapping This Site"
 
 +++
 
-https://github.com/spf13/hugo/releases
-https://github.com/spf13/hugo/releases/download/v0.20.7/hugo_0.20.7_Linux-64bit.deb
-sudo dpgk -i hugo_0.20.7_Linux-64bit.deb
+These are the steps I followed to build this site with Hugo.
 
-    charles@gamera ~/s/charlesk-hugo> hugo version
+# First Steps
+
+### Getting Hugo
+
+The version of Hugo in my Debian repos was a little old, and the Hugo website has [prebuilt downloads](https://github.com/spf13/hugo/releases) page, so I installed manually instead of using apt. YMMV on this step, naturally.
+
+    charles@gamera ~> sudo dpkg -i hugo_0.20.7_Linux-64bit.deb
+    charles@gamera ~> hugo version
     Hugo Static Site Generator v0.20.7 linux/amd64 BuildDate: 2017-05-03T02:39:25-05:00
 
-Create a repo that will hold the Hugo content
-https://github.com/new
-I called mine "charlesk-hugo"
-Clone it locally
+### Creating a New Hugo Site
+
+Since I wanted to host this content on github, I created a [new repo](https://github.com/new) there called 'charlesk-hugo' and clone it locally:
 
     charles@gamera ~/src> git clone git@github.com:charlesk/charlesk-hugo.git
     Cloning into 'charlesk-hugo'...
@@ -28,15 +32,11 @@ Clone it locally
     remote: Compressing objects: 100% (2/2), done.
     remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
     Receiving objects: 100% (3/3), done.
-
-Now we have a nearly-empty directory to put content in:
-
     charles@gamera ~/src> cd charlesk-hugo/
     charles@gamera ~/s/charlesk-hugo> ls
     README.md
 
-Let's init the Hugo content here.
-Since that's the sole point of this repo, we init the site in the toplevel directory:
+The next step was to have Hugo initialize the site. That's the sole purpose of the repo, so I used the toplevel repo directory:
 
     charles@gamera ~/s/charlesk-hugo> hugo new site . --force
     Congratulations! Your new Hugo site is created in /home/charles/src/charlesk-hugo.
@@ -52,9 +52,9 @@ Since that's the sole point of this repo, we init the site in the toplevel direc
 
     Visit https://gohugo.io/ for quickstart guide and full documentation.
 
-Now, just like the output of {{{hugo new}}} said, it's time to pick a theme.
-I chose [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme)
-which comes with its own README, so I follow that here:
+### Installing a Theme
+
+The stdout from `hugo new` is right -- it's time to pick a theme. I chose [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme), whose README steps tell me to clone it into themes/ and then copy its config and l10n files:
 
     charles@gamera ~/s/charlesk-hugo> cd themes/
     charles@gamera ~/s/c/themes> git clone https://github.com/digitalcraftsman/hugo-icarus-theme.git
@@ -67,50 +67,86 @@ which comes with its own README, so I follow that here:
     charles@gamera ~/s/c/themes> cd ..
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/data/l10n.toml data/
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/config.toml config.toml 
-    charles@gamera ~/s/charlesk-hugo> vi config.toml
 
-Add a first post:
+### Editing config.toml
+
+Icarus next suggests poking around in config.toml. Since the goal is to bootstrap a first draft as quickly as possible, I only did the quickest things: change the name and baseurl, add github/linkedin profiles, etc. I don't have a logo or avatar yet, so I commented those pieces out.
+
+### First Post
+
+To round it off, I added a first post so that the site will have something to show:
 
     charles@gamera ~/s/charlesk-hugo> hugo new post/bootstrapping-this-site.md
     /home/charles/src/charlesk-hugo/content/post/bootstrapping-this-site.md created
 
-Now we get to see what the rough draft will look like:
+That article may look familiar... because it's what you're reading now. :)
+
+To recap the story so far:
+
+1. Installed Hugo
+2. Initialized a site
+3. Installed a theme
+4. Added a first post
+
+Time to see what the output looks like, by running Hugo in server mode:
 
     charles@gamera ~/s/charlesk-hugo> hugo server --buildDrafts -t hugo-icarus-theme
     ERROR 2017/05/09 08:02:14 Error while rendering "home": template: theme/index.html:4:7: executing "theme/index.html" at <partial "header" .>: error calling partial: template: theme/partials/header.html:29:105: executing "theme/partials/header.html" at <absURL>: wrong number of args for absURL: want 1 got 0
 
-Oops, an empty page. Let's look at that error:
+### Commit in Haste, Debug at Leisure
 
-    charles@gamera ~/s/charlesk-hugo> find ./ -name header.html
-    ./themes/hugo-icarus-theme/layouts/partials/header.html
-    charles@gamera ~/s/charlesk-hugo> view ./themes/hugo-icarus-theme/layouts/partials/header.html
+Oops, no content. An empty page. Let's see what's going on in header.html:29 that the error mentioned:
 
-Line 29 there reads:
+    charles@gamera ~/s/charlesk-hugo> sed -n 28,30p (find ./ -name header.html)
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="{{ .Site.Params.avatar | absURL }}"><i class="fa fa-caret-down"></i></a>
+          </div>
 
-    <a id="profile-anchor" href="javascript:;"><img class="avatar" src="{{ .Site.Params.avatar | absURL }}"><i class="fa fa-caret-down"></i></a>
+(NB: the parenthetical syntax above might look confusing if you're not using [fish](https://fishshell.com/). The bashism version is `$(find ./ -name header.html)` or `` `find ./ -name header.html` ``)
 
-So it looks commenting out the avatar is one shortcut we can't take. {{{config.toml}}} had the default avatar in {{{css/images/avatar.png}}}, which according to {{{find ./ -name "css"}}}, is in {{{./themes/hugo-icarus-theme/static/css}}}. So I'll take my gravatar and copy it to there. YMMV on this command, obviously, but I used:
+Clearly, commenting out the avatar a few steps ago was not such a shortcut after all. I'll revert config.toml to restore the default location (`css/images/avatar.png`) and put my avatar there.
 
-    cp ~/Pictures/avatar.png ./themes/hugo-icarus-theme/static/css/images/avatar.png
+    charles@gamera ~/s/charlesk-hugo> find ./ -name avatar.png
+    ./themes/hugo-icarus-theme/static/css/images/avatar.png
+    charles@gamera ~> cp path/to/real/avatar.png ./themes/hugo-icarus-theme/static/css/images/avatar.png
 
-...and then re-enabled the avatar:
+Now I try `hugo server --buildDrafts -t hugo-icarus-theme` again and... success!
 
-    diff --git a/config.toml b/config.toml
-    index 1f55e6d..af0b5ed 100644
-    --- a/config.toml
-    +++ b/config.toml
-    @@ -22,7 +22,7 @@ theme = "hugo-icarus-theme"
-         location = "New Orleans"
-         site_description = ""
-         copyright = "" # "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    -    avatar = "" # "css/images/avatar.png"
-    +    avatar = "css/images/avatar.png"
-         logo = "" # "css/images/logo.png"
-         disable_mathjax = false # set to true to disable MathJax
+# Finishing the First Post
 
-Now we restart {{{hugo server --buildDrafts -t hugo-icarus-theme}}} and try again.
+### Adding a Banner
 
-Success! We have a page... but no github or linkedin links? Let's find out why. Since Hugo themes are usually hosted on github, "linkedin" will be the rarer key. Let's search for that:
+Now that the website is loading, the first post is showing some loose ends: there's no banner, no tags, and the title is lowercase. To fix the first problem, I looked for a "hello world" banner on Google images and filtered by free-for-reuse licensing, then saved it to the static `banners` folder recommended by Icarus:
+
+    charles@gamera ~/s/charlesk-hugo> mkdir -p static/banners
+    charles@gamera ~/s/charlesk-hugo> cd static/banners
+    charles@gamera ~/s/c/s/banners> wget -O bootstrapping-this-site.jpg https://static.pexels.com/photos/106582/pexels-photo-106582.jpeg
+
+...and tell content/posts/bootstrapping-this-site.md about it:
+
+    @@ -1,5 +1,5 @@
+     +++
+    -banner = ""
+    +banner = "banners/bootstrapping-this-site.jpg"
+     categories = []
+
+### Cleaning up the Front Matter
+
+The default title was just a stripped version of the filename. Let's tweak this to capitalize it properly:
+
+    -title = "bootstrapping this site"
+    +title = "Bootstrapping This Site"
+
+And, finally, add some tags:
+
+    -tags = []
+    +tags = ["hugo", "github", "howto"]
+
+# Other Loose Ends
+
+### Missing Social Links [PEBCAK](https://www.urbandictionary.com/define.php?term=pebkac) Error
+
+The first thing I notice is that none of my social links appeared! Is it a bug in the theme? Did I edit something else wrong in config.toml? Let's see what's going on. I added two social sites, github and linkedin. Since hugo themes are often hosted on github, "linkedin" will be the rarer key. Let's search for that:
 
     charles@gamera ~/s/c/t/hugo-icarus-theme> grep --files-with-matches -r linkedin *
     exampleSite/config.toml
@@ -119,25 +155,53 @@ Success! We have a page... but no github or linkedin links? Let's find out why. 
     static/fonts/fontawesome-webfont.ttf
     static/fonts/FontAwesome.otf
 
-We already know about config.tml, and the three fontawesome hits are probably some font that includes the linkedin logo, so that conveniently leaves one suspect, {{{social.html}}}. Looking at that, we find:
+We already know about config.tml, and the three fontawesome hits are probably some font that includes the linkedin logo. That conveniently leaves one suspect, `social.html`. Looking at that, we find:
 
     {{ with .Site.Social.linkedin }}
     <td><a href="//linkedin.com/in/{{.}}" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
     {{ end }}
 
-This looks consistent with the .Site.Foo.bar nomenclature we found earlier when debugging the no-avatar-breaks-page issue above, so where's the problem? Let's see where social.html is included from:
+This looks consistent with the .Site.Foo.bar nomenclature we found earlier when debugging the no-avatar-breaks-page issue above. At first glance, this looks fine. Let's walk backwards and see where social.html is included from:
 
     charles@gamera ~/s/c/t/hugo-icarus-theme> ag "\"social\""
     layouts/partials/profile.html
     33:          {{ partial "social" . }}
 
+That looks right, too. Hmm, what if I do what I should've done in the first place and view source?
+
     <div class="profile-block social-links">
       <table>
         <tr>
-          
-<td><a href="//github.com/charlesk" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
-<td><a href="//linkedin.com/in/www.linkedin.com/in/charles-kerr" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
 
+.. so the social links are, actually, being generated. Why can't I see them?
 
+The answer turns out to be my adblocker:
 
+    Static filter ##.social-links found in:
 
+        Fanboy’s Annoyance List
+        Fanboy’s Social Blocking List
+
+So I disable adblocking for localhost, reload, and... the links are "fixed"!
+
+### Adding Static Content
+
+Lastly, I added some static content: [my resume](http://www.charleskerr.com/resume/).
+
+    charles@gamera ~/s/charlesk-hugo> cp -R path/to/resume static/
+
+and add these lines to config.toml:
+ 
+     [[params.menu]]
+         before = false
+    +    label  = "Resume"
+    +    link   = "resume/"
+    +
+    +[[params.menu]]
+    +    before = false
+         label  = "Tags"
+         link   = "tags/"
+
+This put a 'resume' link in the top menu.
+
+And that's it! Those are the steps I followed to get this site started using Hugo and the Icarus theme. In the next post I'll discuss hosting the static content on Github's Personal Pages.
