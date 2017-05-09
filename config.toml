@@ -22,7 +22,7 @@ theme = "hugo-icarus-theme"
     location = "New Orleans"
     site_description = ""
     copyright = "Charles Kerr. Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    avatar = "css/images/avatar.png"
+    avatar = "images/avatar.jpg"
     logo = "css/images/logo.png"
     disable_mathjax = false # set to true to disable MathJax
 
