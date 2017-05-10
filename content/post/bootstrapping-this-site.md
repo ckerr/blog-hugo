@@ -2,15 +2,14 @@
 banner = "banners/bootstrapping-this-site.jpg"
 categories = []
 date = "2017-05-09T07:59:31-05:00"
-description = "I built this site with Hugo. This is how I did it."
 images = []
 menu = ""
 tags = ["howto", "hugo", "git", "github"]
-title = "Bootstrapping This Site with Hugo"
+title = "Bootstrapping a Website with Hugo"
 
 +++
 
-These are the steps I followed to build this site with Hugo.
+These are the steps I followed to build this site with [Hugo](https://gohugo.io/), a tool for generating static website content.
 
 # First Steps
 
@@ -56,13 +55,13 @@ The next step was to have Hugo initialize the site. That's the sole purpose of t
 
 The stdout from `hugo new` is right -- it's time to pick a theme. I chose [Icarus](https://github.com/digitalcraftsman/hugo-icarus-theme), whose README steps tell me to clone it into themes/ and then copy its config and l10n files:
 
-    charles@gamera /t/charlesk-hugo> git submodule add https://github.com/digitalcraftsman/hugo-icarus-theme.git themes/hugo-icarus-theme
-    Cloning into '/tmp/charlesk-hugo/themes/hugo-icarus-theme'...
+    charles@gamera /s/charlesk-hugo> git submodule add https://github.com/digitalcraftsman/hugo-icarus-theme.git themes/hugo-icarus-theme
+    Cloning into '/home/charles/src/charlesk-hugo/themes/hugo-icarus-theme'...
     remote: Counting objects: 938, done.
     remote: Total 938 (delta 0), reused 0 (delta 0), pack-reused 938
     Receiving objects: 100% (938/938), 2.31 MiB | 0 bytes/s, done.
     Resolving deltas: 100% (608/608), done.
-    charles@gamera /t/charlesk-hugo> ls themes/
+    charles@gamera ~/s/charlesk-hugo> ls themes/
     hugo-icarus-theme/
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/data/l10n.toml data/
     charles@gamera ~/s/charlesk-hugo> cp themes/hugo-icarus-theme/exampleSite/config.toml config.toml 
@@ -89,7 +88,7 @@ To recap the story so far:
 
 Time to see what the output looks like, by running Hugo in server mode:
 
-    charles@gamera ~/s/charlesk-hugo> hugo server --buildDrafts -t hugo-icarus-theme
+    charles@gamera ~/s/charlesk-hugo> hugo server -t hugo-icarus-theme
     ERROR 2017/05/09 08:02:14 Error while rendering "home": template: theme/index.html:4:7: executing "theme/index.html" at <partial "header" .>: error calling partial: template: theme/partials/header.html:29:105: executing "theme/partials/header.html" at <absURL>: wrong number of args for absURL: want 1 got 0
 
 ### Commit in Haste, Debug at Leisure
@@ -101,9 +100,9 @@ Oops, no content -- an empty page. Let's see what's going on in header.html:29 t
             <a id="profile-anchor" href="javascript:;"><img class="avatar" src="{{ .Site.Params.avatar | absURL }}"><i class="fa fa-caret-down"></i></a>
           </div>
 
-(NB: the parenthetical syntax above might look confusing if you're not using [fish](https://fishshell.com/). The bashism version is `$(find ./ -name header.html)` or `` `find ./ -name header.html` ``)
+(*aside*: the parenthetical syntax above is a [fish](https://fishshell.com/)ism. The bash equivalent is `$(find ./ -name header.html)` or `` `find ./ -name header.html` ``)
 
-Clearly, commenting out the avatar a few steps ago was not such a shortcut after all. I'll put my avatar under the static/ directory and tell config.toml about it:
+Commenting out the avatar a few steps ago was clearly not a shortcut after all. I'll put my avatar under the static/ directory and tell config.toml about it:
 
     charles@gamera ~/s/charlesk-hugo> mkdir -p static/images
     charles@gamera ~/s/charlesk-hugo> cp path/to/real/avatar.jpg ./static/images/avatar.jpg
@@ -111,7 +110,7 @@ Clearly, commenting out the avatar a few steps ago was not such a shortcut after
     charles@gamera ~/s/charlesk-hugo> grep avatar config.toml
     avatar = "images/avatar.jpg"
 
-Now I try `hugo server --buildDrafts -t hugo-icarus-theme` again and... success!
+Now I try `hugo server -t hugo-icarus-theme` again and... success!
 
 # Finishing the First Post
 
@@ -150,6 +149,7 @@ and to add some tags:
 
 The first thing I notice is that none of my social links appeared! Is it a bug in the theme? Did I edit something else wrong in config.toml? Let's see what's going on. I added two social sites, github and linkedin. Since hugo themes are often hosted on github, "linkedin" will be the rarer key. Let's search for that:
 
+    charles@gamera ~/s/charlesk-hugo> cd themes/hugo-icarus-theme
     charles@gamera ~/s/c/t/hugo-icarus-theme> grep --files-with-matches -r linkedin *
     exampleSite/config.toml
     layouts/partials/social.html
@@ -157,19 +157,19 @@ The first thing I notice is that none of my social links appeared! Is it a bug i
     static/fonts/fontawesome-webfont.ttf
     static/fonts/FontAwesome.otf
 
-We already know about config.tml, and the three fontawesome hits are probably some font that includes the linkedin logo. That conveniently leaves one suspect, `social.html`. Looking at that, we find:
+We already know about config.toml. The three fontawesome hits are likely related to a font that provides the linkedin logo. That conveniently leaves us one suspect, `social.html`. In that, we find:
 
     {{ with .Site.Social.linkedin }}
     <td><a href="//linkedin.com/in/{{.}}" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
     {{ end }}
 
-This looks consistent with the .Site.Foo.bar nomenclature we found earlier when debugging the no-avatar-breaks-page issue above. At first glance, this looks fine. Let's walk backwards and see where social.html is included from:
+This looks consistent with the .Site.Foo.bar nomenclature seen earlier when debugging the self-induced avatar breakage above. At first glance, this looks fine. Let's step backwards and see where social.html is included from:
 
     charles@gamera ~/s/c/t/hugo-icarus-theme> ag "\"social\""
     layouts/partials/profile.html
     33:          {{ partial "social" . }}
 
-That looks right, too. Hmm, what if I do what I should've done in the first place and view source?
+That looks right, too. Hmm, what's View Source say?
 
     <div class="profile-block social-links">
       <table>
@@ -204,11 +204,11 @@ and add these lines to config.toml:
          label  = "Tags"
          link   = "tags/"
 
-This put a 'resume' link in the top menu.
+This put a 'Resume' link in the top menu.
 
-### Future clones
+### Mind the Submodules
 
-If you clone my repo, you may get a blank page served to you because the themes/hugo-icarus-theme/ folder is empty. Remember, since that's a submodule, we need to clone recursively:
+Important note if you're storing your content in a git repository. Since themes/hugo-icarus-theme is a submodule that points to the upstream Icarus theme, remember to use `--recursive` when cloning to get the submodule content that Hugo needs:
 
     charles@gamera ~/src> git clone --recursive git@github.com:charlesk/charlesk-hugo.git
     Cloning into 'charlesk-hugo'...
@@ -225,7 +225,4 @@ If you clone my repo, you may get a blank page served to you because the themes/
     Resolving deltas: 100% (608/608), done.
     Submodule path 'themes/hugo-icarus-theme': checked out '855e14be1ceabc65a7de8a16b8c1717157d9bef9'
 
-Now the content will work again.
-
-
-And that's it! Those are the steps I followed to get this site started using Hugo and the Icarus theme. In the next post I'll discuss hosting the static content on Github's Personal Pages.
+So now we have Hugo generating a blog-style website at localhost:1313 that looks pretty good. We're halfway there! In my next post I'll discuss getting that generated site hosted on GitHub's User Pages.
