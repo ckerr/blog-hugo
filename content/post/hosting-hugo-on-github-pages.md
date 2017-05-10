@@ -10,13 +10,11 @@ title = "Hosting a Hugo site on GitHub's User Pages"
 
 +++
 
-This is the second half of my "Bootstrapping This Site" series -- you may want to check out [part one]({{< relref "bootstrapping-this-site.md" >}}) first.
+This is the second half of my "Bootstrapping This Site" series. At the end of [part one]({{< relref "bootstrapping-this-site.md" >}}), we had `hugo server` generating a site for us on http://localhost:1313/ . In this second (shorter) article, I'll discuss how to get that content pushed to a GitHub Pages user account with a [custom domain](http://charleskerr.com/). Happily, there are only a few steps and none of them are too difficult:
 
-At the end of that post, `hugo server` was correctly generating the site so that it could be read from http://localhost:1313/ . In this second (shorter) article, I discuss how to get that content pushed onto [my own domain](http://charleskerr.com/). There three parts to this:
-
-1. Configuring the custom domain's DNS
-2. Adding a CNAME file to the top-level of username.github.io
-3. Getting the Hugo-generated files over to username.github.io
+1. Configure the custom domain's DNS
+2. Add a CNAME file to the top-level of username.github.io
+3. Put the Hugo-generated public files on username.github.io
 
 Configure the custom domain's DNS
 =================================
@@ -43,10 +41,11 @@ GitHub Pages needs to know about the custom domain. Its [custom domain docs](htt
     ~/s/charlesk-hugo> git commit -m "add CNAME for github pages custom domain"
 
 
-Generate Files to username.gitub.io
-===================================
+Put the Hugo-generated public files on username.github.io
+=========================================================
 
-This is a straightforward step that's explained in Hugo's [tutorials](https://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages). Since this is a User Pages site, rather than a project page, content [must](https://help.github.com/articles/user-organization-and-project-pages/) be served from username.github.io's master branch. So I have two repos:
+Since this is a User Pages site, rather than a project page, content [must](https://help.github.com/articles/user-organization-and-project-pages/) be served from username.github.io's master branch.
+For this step, I used the suggestions in Hugo's [tutorials](https://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages), so I have two repos:
 
 1. https://github.com/username/projectname-hugo holds my Hugo content (e.g. themes, markdown files, etc)
 
