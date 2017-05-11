@@ -6,7 +6,7 @@ description = ""
 images = []
 menu = ""
 tags = [ "movies"]
-title = "Movie Sign: The 10th victim"
+title = "Movie Sign: The 10th Victim"
 
 +++
 
