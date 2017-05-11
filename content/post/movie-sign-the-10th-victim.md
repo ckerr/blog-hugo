@@ -20,7 +20,7 @@ The 10th Victim is an early version of the [Deadly Game](http://tvtropes.org/pmw
 
 The first thing you'll notice when watching is that the film flat-out *looks* sensational.
 It's one of the most 60's films you'll ever see,
-a hyper-stylized view of the era with a constant stream of 60's Pop eye candy.
+a steady stream hyper-stylized eye candy.
 
 {{< gallery
   "/images/10th-victim-first-meeting.jpg"
@@ -52,41 +52,36 @@ this is essential viewing.
 
 # ...But What Am I Looking At?
 
+The 10th Victim was not a commercial success. Audiences didn't seem to know what to make of it.
+It's a dark comedy,
+but's also science fiction,
+a romantic comedy,
+a sometimes-serious drama,
+and even kind of a Eurospy movie too.
+And it doesn't always wear all these hats well:
+it dragas in the middle, seemingly not knowing whether to be a romance or satire at times.
+
+But even then, the two leads
 [Marcello Mastroianni](https://en.wikipedia.org/wiki/Marcello_Mastroianni) and 
-[Ursula Andress](https://en.wikipedia.org/wiki/Ursula_Andress) play the lead roles.
+[Ursula Andress](https://en.wikipedia.org/wiki/Ursula_Andress) keep things interesting.
 Mastroianni had starred in La Dolce Vita a few years before,
-and Andress was fresh off being the first "Bond Girl" in Dr. No.
-Although this *is* a 60s Pop comicbook movie,
-it's a romantic comedy and, at times, a drama.
-Mastroianni is solid as Marcello.
-Andress excels when the movie calls for style (as you'd expect from the first Bond Girl),
-and, while not as strong an actor as Mastroianni, does well enough when acting is called for.
-
-Mixing romantic comedy, drama, 60s Pop, and comicbook is not easy,
-and The 10th Victim doesn't always pull it off.
-It drags in the middle, trying but failing to balance the satire and romantic plot.
-Likewise, it was not a commercial success. Audiences didn't seem to know what to make of it:
-
- * Is it science fiction? Yes.
- * Is it a psychedelic movie? Yes.
- * Romantic comedy? Yes.
- * A black comedy? Oh, yes.
- * A straight drama? Sometimes.
- * Eurospy? ...maybe?
+Andress was fresh off being the first "Bond Girl" in Dr. No,
+and they do have a screen chemistry that fits this strange movie well.
 
 # Summary
 
-Despite its weaknesses, though, there's a lot to like about this movie:
-it's fine as a black comedy,
-it's interesting as an early entry into subversive science fiction film,
+Despite its weaknesses, though, there's a lot to like about this movie.
+It's funny, it's an interesting early subversive SF film,
 and -- especially -- it's a visual feast of 60s Pop.
-Plus, it's only 92 minutes long. If any of the above sounds interesting, what do you have to lose?
+
+Plus, it's only 92 minutes long.
+What do you have to lose?
 
 **Rating: 6 out of 10**
 
-# Ming Tea
+# Trivia Time: Ming Tea
 
-One piece of trivia: this movie was an inspiration for Mike Myers' Austin Powers character.
+This movie was an inspiration for Mike Myers' Austin Powers character.
 Before his movies, Austin was the lead vocalist of faux retro-mod band ["Ming Tea"](https://en.wikipedia.org/wiki/Ming_Tea),
 a [Spinal Tap](https://en.wikipedia.org/wiki/Spinal_Tap_(band))-style band
 which played real music but whose members performed in character.
