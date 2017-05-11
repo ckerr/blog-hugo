@@ -19,25 +19,26 @@ The 10th Victim is an early version of the [Deadly Game](http://tvtropes.org/pmw
 # It *Looks* Great...
 
 The first thing you'll notice when watching is that the film flat-out *looks* sensational.
-It's one of the most 60's films you'll ever see,
-a steady stream hyper-stylized eye candy.
+It's one of the "grooviest" films you'll ever see,
+with scene after scene of 60s Pop eye candy
 
 {{< gallery
   "/images/10th-victim-first-meeting.jpg"
-  "/images/10th-victim-alone-in-a-crowd.jpg"
-  "/images/10th-victim-a-comicbook-movie.jpg"
-  "/images/10th-victim-a-valid-kill.jpg"
   "/images/10th-victim-disembarking-plane.jpg"
   "/images/10th-victim-eyes-are-watching.jpg"
   "/images/10th-victim-lets-give-dr-klahn-a-great-big-hand.jpg"
+  "/images/10th-victim-a-comicbook-movie.jpg"
+  "/images/10th-victim-alone-in-a-crowd.jpg"
+  "/images/10th-victim-a-valid-kill.jpg"
   "/images/10th-victim-martinelli.jpg"
+  "/images/10th-victim-my-eyes-are-over-here.jpg"
   "/images/10th-victim-pensive.jpg"
   "/images/10th-victim-pew-pew.jpg"
   "/images/10th-victim-the-after-hours.jpg"
-  "/images/10th-victim-wait.jpg"
   "/images/10th-victim-the-goon-squad-is-coming-to-town.jpg"
+  "/images/10th-victim-wait.jpg"
   "/images/10th-victim-what-is-it-its-green.jpg"
-  "/images/10th-victim-my-eyes-are-over-here.jpg"
+  "/images/10th-victim-why-did-you-resign.jpg"
 >}}
 *Click for a gallery*
 
@@ -50,7 +51,7 @@ The Steed & Peel [Avengers](https://en.wikipedia.org/wiki/The_Avengers_%28TV_ser
 or even Austin Powers (more on that later) --
 this is essential viewing.
 
-# ...But What Am I Looking At?
+# ...but What Am I Looking At?
 
 The 10th Victim was not a commercial success. Audiences didn't seem to know what to make of it.
 It's a dark comedy,
@@ -68,13 +69,14 @@ Mastroianni had starred in La Dolce Vita a few years before,
 Andress was fresh off being the first "Bond Girl" in Dr. No,
 and they do have a screen chemistry that fits this strange movie well.
 
-# Summary
+# Conclusion
 
-Despite its weaknesses, though, there's a lot to like about this movie.
-It's funny, it's an interesting early subversive SF film,
+Despite its weaknesses, there's a lot to enjoy about The 10th Victim.
+It's funny,
+it's an interesting early subversive SF film,
 and -- especially -- it's a visual feast of 60s Pop.
 
-Plus, it's only 92 minutes long.
+Also, it's only 92 minutes long.
 What do you have to lose?
 
 **Rating: 6 out of 10**
@@ -87,6 +89,7 @@ a [Spinal Tap](https://en.wikipedia.org/wiki/Spinal_Tap_(band))-style band
 which played real music but whose members performed in character.
 Ming Tea's members, who included Myers, Susanna Hoffs (The Bangles), and Matthew Sweet,
 each performed in a different 60s stereotype character.
+
 The band's name comes from one of The 10th Victim's satirical ads:
 Dancing teacups, singing Ming Tea's praises, danced on-camera as Marcello and Caroline's hunt reached its climax.
 
@@ -94,7 +97,8 @@ Dancing teacups, singing Ming Tea's praises, danced on-camera as Marcello and Ca
 
 ![](/images/10th-victim-and-youll-live-longer.jpg)
 
-The fembot bra guns were also lifted from The 10th Victim, where Andress kills a victim in this fashion in the opening scenes:
+Also, who could forget Austin Powers' fembot bra guns?
+Those are also from The 10th Victim, where Andress kills one of her victims this way in the opening scenes:
 
 ![](/images/10th-victim-fembot-bra.jpg")
 
