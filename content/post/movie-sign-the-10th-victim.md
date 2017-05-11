@@ -20,7 +20,7 @@ The 10th Victim is an early version of the [Deadly Game](http://tvtropes.org/pmw
 
 The first thing you'll notice when watching is that the film flat-out *looks* sensational.
 It's one of the "grooviest" films you'll ever see,
-with scene after scene of 60s Pop eye candy
+with scene after scene of 60s Pop eye candy:
 
 {{< gallery
   "/images/10th-victim-first-meeting.jpg"
@@ -58,9 +58,9 @@ It's a dark comedy,
 but's also science fiction,
 a romantic comedy,
 a sometimes-serious drama,
-and even kind of a Eurospy movie too.
-And it doesn't always wear all these hats well:
-it dragas in the middle, seemingly not knowing whether to be a romance or satire at times.
+and even kind of a Eurospy movie..
+It doesn't always wear all these hats well:
+it drags in the middle, seemingly not knowing whether to be a romance or satire at times.
 
 But even then, the two leads
 [Marcello Mastroianni](https://en.wikipedia.org/wiki/Marcello_Mastroianni) and 
@@ -74,6 +74,7 @@ and they do have a screen chemistry that fits this strange movie well.
 Despite its weaknesses, there's a lot to enjoy about The 10th Victim.
 It's funny,
 it's an interesting early subversive SF film,
+Mastroianni puts in some good acting,
 and -- especially -- it's a visual feast of 60s Pop.
 
 Also, it's only 92 minutes long.
