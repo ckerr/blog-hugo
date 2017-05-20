@@ -1,0 +1,11 @@
+blog entry ideas
+ - getting transmission web client running on node js
+ - making web client testable
+   - separation of concern
+   - dependency injection
+   - transmission server mock, also in node
+   - cursory mocha tests for mock
+ - adding tests to transmission web client
+ - deciding on a framework to update web client - state goals - state problems with current - evaluate
+ - series on updating transmission web client
+ - adding per-tracker download directory to transmission
