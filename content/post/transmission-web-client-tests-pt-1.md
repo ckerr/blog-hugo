@@ -6,44 +6,53 @@ description = ""
 images = []
 menu = ""
 tags = ["bdd", "chai", "javascript", "javascript", "jsdom", "mocha", "node", "npm", "npm", "nvm", "sinon", "tdd", "testing", "transmission"]
-title = "Testing Transmission's Web Client, Part One: Getting Started"
+title = "Testing Transmission's Web Client, Part One: Getting Started with Node, Mocha, and Chai"
 +++
 
-I've been on the [Transmission](https://transmissionbt.com) project for a long time and wrote most of its [web client](https://transmissionbt.com/images/screenshots/Clutch-Large.jpg).
-The code's core is OK,
-but the rest needs some love:
-the interface is showing its age,
-the CSS is brittle,
+I've been on the [Transmission](https://transmissionbt.com) project for a long time
+and wrote a lot of its [web client](https://transmissionbt.com/images/screenshots/Clutch-Large.jpg).
+The code's core is good,
+but the rest needs some upkeep:
+its interface is showing its age,
+its CSS is brittle,
 and it's using some unmaintained libraries.
 
-But the worst thing is there's nothing to tell us when the code breaks.
-For example, the "download complete" notifications are broken because it uses `window.webkitNotifications` which --
+But worst of all is there's nothing to tell us when code breaks.
+For example, the "download complete" notifications are broken because they use `window.webkitNotifications` which --
 in addition to being webkit-specific --
-was superceded a couple of *years* ago
-by the [Notifications interface](https://developer.mozilla.org/en/docs/Web/API/notification)
-of the [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API).
-Why didn't some alarm bells go off when this broke?
+was superceded *a couple of years* ago
+by the Notifications [interface](https://developer.mozilla.org/en/docs/Web/API/notification)
+and [API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API).
+Why didn't alarm bells go off when this broke?
 
-As you've guessed from the title, the answer is tests. Or rather, the lack of them.
-
+As you've guessed from the title, the answer is tests -- or the lack of them.
 This code was written before I got religion on
-[TDD](https://en.wikipedia.org/wiki/Test-driven_development)/
-[BDD](https://en.wikipedia.org/wiki/Behavior-driven_development),
+Test-Driven Development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development))
+and
+Behavior-Driven Development ([BDD](https://en.wikipedia.org/wiki/Behavior-driven_development)),
 so there aren't any tests.
-When no alarm bells exist, no alarm bells ring.
+When alarm bells dont't exist, they don't ring.
 
-If we want to *know* our code changes stick,
+![](/images/tests-cant-fail-if-no-tests.jpg)
+
+If we want to *know* our fixes stick,
 we need to add tests as we go.
-Since we're starting from scratch,
-we need to set up a test environment first.
 
-# [If you want to make a bugfix from scratch...](https://fee.org/articles/listen-to-i-pencil-on-freakonomics-radio/)
+# Creating the Universe
 
-I'm going to write these tests for [mocha](https://mochajs.org/) and [sinon](https://sinonjs.org).
-Mocha is a JavaScript testing framework, and
-Chai is a BDD/TDD syntax that can be used in Mocha.
-Both can be used in browsers and in Node.
-For now, I'll start with Node.
+Carl Sagan said ``If you wish to make an apple pie from scratch, you must first create the Universe.''
+Since this is the code's first test, we must first create the test environment.
+
+I'm going to use
+[Mocha](https://mochajs.org/),
+[Chai](https://chaijs.com/), and
+[Sinon](https://sinonjs.org) for these tests.
+Mocha is a JavaScript testing framework,
+Chai is a BDD/TDD syntax that can be used in Mocha, and
+Sinon is a tool for adding mocks and spies to tests.
+These can all be for testing in browsers and in Node;
+for now,
+I'll start with Node.
 
 ## Setting up Node
 
@@ -52,20 +61,21 @@ we're also going to need
 [jsdom-global](https://github.com/rstacruz/jsdom-global)
 to set up a browserlike DOM environment to run in.
 Unfortunately, the latest versions of jsdom require Node 6 or higher,
-while my Ubuntu installation (17.04) still ships with node 4.7.x:
+while Ubuntu 17.04 is still shipping with node 4.7.x:
 
     charles@calliope:~$ dpkg -s nodejs | grep "^Version"
     Version: 4.7.2~dfsg-1ubuntu3
     charles@calliope:~$ npm --version
     4.6.1
 
-# nvm
+# NVM: Node Version Manager
 
-I'd like to leave the Ubuntu-installed version of npm alone,
-but still use node here 6 in order to pick up jsdom.
-[`nvm`](https://github.com/creationix/nvm/blob/master/README.md), the Node Version Manager, is a tool for wrangling multiple installs of node.
-After doing the [manual install](https://github.com/creationix/nvm/blob/master/README.md#manual-install) -- I'd rather not pipe magic URLs into bash, thank you -- and
-then running "nvm install node", I get this:
+I'd like to keep the debian-packaged version of Node on my system as-is for other projects,
+but still need a newer version of Node here for jsdom.
+[`nvm`](https://github.com/creationix/nvm/blob/master/README.md), the Node Version Manager, is a tool for wrangling Node installations.
+After doing the [manual install](https://github.com/creationix/nvm/blob/master/README.md#manual-install)
+(the automated install requires piping a magic URL into bash. No thanks!)
+I get this result:
 
     charles@calliope:~$ nvm install node
     Downloading and installing node v8.0.0...
@@ -78,17 +88,19 @@ then running "nvm install node", I get this:
     charles@calliope:~$ npm --version
     5.0.0
 
-So, the shell's picking up npm 5 instead of 4.6.1. Now we can run tests that use jsdom.
+The shell's picking up npm 5 instead of 4.6.1.
+Good!
+Now we can run tests that use jsdom.
 
-## Setting up our Node environment
+## Setting up our Node packages
 
 The next step is to create a `package.json` file in transmission/web/
-so that Node will know what packages we need from npm and how to run tests.
+so that npm will know what packages we need and how to run tests.
 First I'll create a skeleton file:
 
     {
       "name": "transmission-web-client",
-      "description": "transmission's bundled web client",
+      "description": "transmission's web client",
       "repository": "git://github.com/transmission/transmission.git",
       "version": "2.9.2",
       "license": "GPL-3.0",
@@ -96,8 +108,8 @@ First I'll create a skeleton file:
     }
 
 And then fill in the devDependencies from the command line.
-We want mocha, chai, sinon, and jsdom for the reasons already listed above.
-We'll also add the mocha-jsdom and sinon-chai glue packages:
+As mentioned above, we want Mocha, Chai, Sinon, and jsdom.
+We'll also get the mocha-jsdom and sinon-chai glue packages:
 
     charles@calliope:~/src/transmission/web$ npm i mocha mocha-jsdom jsdom jsdom-global chai sinon sinon-chai --save-dev
 
@@ -113,10 +125,7 @@ Which adds this section to `package.json`:
         "sinon-chai": "^2.10.0"
       },
 
-Now we can run 'npm test' to confirm we've got the framework set up.
-There aren't any tests to run yet,
-but just getting a no-tests-found error is progress:
-it means we've got npm finding Mocha and that Mocha is looking for tests.
+Now we can run 'npm test' to confirm we've got the framework.
 
     # create the tests dir mentioned in package.json's 'scripts' section
     charles@calliope:~/src/transmission/web$ mkdir tests
@@ -128,14 +137,17 @@ it means we've got npm finding Mocha and that Mocha is looking for tests.
     No test files found
     npm ERR! Test failed.  See above for more details.
 
-Great! Now let's write some JavaScript.
+There aren't any tests yet,
+but even a no-tests-found error is progress:
+it means npm and Mocha are working.
+Great!
+Now let's write some JavaScript.
 
 ## Setting up our tests' scaffolding
 
-Our first test will set up the test scaffolding, then run a simple
-"Hello, World!" test that always passes. The goal here is to ensure
-that the environment is getting set up properly -- for example, since
-Transmission uses jQuery, we'll error out if `global.$` isn't set.
+Our first test will be a "Hello, World!" test that checks the test environment.
+The goal is early detection of scaffolding problems *before* we reach the domain tests.
+For example, since Transmission uses jQuery, we'll error out if `global.$` isn't set.
 Let's take a look:
 
     var chai = require('chai');
@@ -177,15 +189,16 @@ Let's take a look:
         });
     });
 
-That's a lot of scaffolding. Let's take it piece by piece:
+That's a lot of code all at once.
+Let's walk through it piece by piece:
 
     var chai = require('chai');
     var expect = chai.expect;
     var sinon = require('sinon');
     var jsdom = require('jsdom-global');
 
-Load chai, sinon, and jsdom-global.
-Make an `expect` local so that we don't have to always use the chai. prefix.
+Load Chai, Sinon, and jsdom-global.
+Make `expect` a local so that we don't have to always prefix it with "chai."
 
     describe("Formatter", function(){
         var sandbox;
@@ -197,10 +210,10 @@ Make an `expect` local so that we don't have to always use the chai. prefix.
             formatter = require('../javascript/formatter.js')
         });
 
-Initialize the Formatter test by loading the formatter module.
-But before doing that, create an empty Transmission object because formatter requires it.
+Load the Formatter module just before running the first Formatter test.
+Also, create an empty Transmission object because formatter requires it.
 This is a wart -- ideally we wouldn't need to refer to app-domain globals -- and we should consider refactoring this away in Formatter.
-We've also hardcoded an awkward path for formatter.js (and for jquery.min.js below). That needs cleanup too.
+Another shortcut we'll need to clean up: the hardcoded paths to formatter.js and jquery.min.js.
 
         beforeEach(function(){
             // start each test with a fresh dom
@@ -215,8 +228,8 @@ We've also hardcoded an awkward path for formatter.js (and for jquery.min.js bel
 
 Before each test:
 
- * initialize the jsdom by invoking it. NB: it returns a cleanup method that we'll can call in afterEach().
- * create a sinon sandbox so that we can watch the console for log/error messages
+ * initialize the jsdom by invoking it. NB: this returns a cleanup method that we'll call in afterEach().
+ * create a Sinon sandbox so that we can watch the console for log/error messages
 
         afterEach(function() {
             // restore the environment
@@ -225,7 +238,7 @@ Before each test:
             jsdom_cleanup();
         });
 
-After each test, clean up the jsdom and sinon sandboxes that we set up in beforeEach().
+After each test, clean up the dom and the Sinon sandbox that were created in beforeEach().
 
         it("should load", function() {
             expect(true).to.be.true;
@@ -233,14 +246,15 @@ After each test, clean up the jsdom and sinon sandboxes that we set up in before
         });
 
 Yes! A test at last!
-It's not a big test, but it's the next step on the path --
+It's not a big test, but it's the next step on our path --
 if `npm test` passes now, it means we have:
 
-  1. npm finding mocha and invoking it
-  2. mocha loading the chai syntax, the sinon mock tools, and jsdom
-  3. mocha is finding our local assets, e.g. formatter.js, and successfully loading them
-  4. we've succeeded in faking out the world that Formatter needs; e.g. the Transmission object
-  5. our "should load" test itself passes, proving that true is true, and that something's in jQuery's '$' variable
+  1. npm running
+  2. npm finding Mocha and invoking it
+  3. Mocha loading the Chai syntax, the Sinon mock tools, and jsdom
+  4. Mocha finding our local assets, e.g. formatter.js, and loading them
+  5. Loaded part of Formatter's outside world, e.g. jQuery's '$' global variable
+  6. Faked part of Formatter's outside world, e.g. the Transmission global variable
 
 What happens if we run it?
 
@@ -253,14 +267,13 @@ What happens if we run it?
 
       1 passing (499ms)
 
-Excellent -- we have a working test environment!
+Excellent! We have a working test environment!
 
-In the next post in this series, I'll write some Transmission-domain tests.
-We'll look at some of the limitations of running tests in Node,
-and alternatives to work around those limitations.
+In the next post in this series,
+I'll finally get to adding real tests.
+I'll also look at some limitations of testing in Node
+and what alternatives exist.
 
 Other articles on Mocha and Chai that I found useful:
 [1](https://nicolas.perriault.net/code/2013/testing-frontend-javascript-code-using-mocha-chai-and-sinon/)
 [2](https://www.sitepoint.com/unit-test-javascript-mocha-chai/)
-
-
