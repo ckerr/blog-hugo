@@ -9,3 +9,4 @@ blog entry ideas
  - deciding on a framework to update web client - state goals - state problems with current - evaluate
  - series on updating transmission web client
  - adding per-tracker download directory to transmission
+ - converting libtransmission to use libuv, which is the successor to libevent/libev

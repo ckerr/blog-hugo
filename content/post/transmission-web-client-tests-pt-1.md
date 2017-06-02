@@ -6,7 +6,7 @@ description = ""
 images = []
 menu = ""
 tags = ["bdd", "chai", "javascript", "javascript", "jsdom", "mocha", "node", "npm", "npm", "nvm", "sinon", "tdd", "testing", "transmission"]
-title = "Testing Transmission's Web Client, Part One: Getting Started with Node, Mocha, and Chai"
+title = "Testing Transmission's Web Client, Part 1: Getting Startted with Node, Mocha, and Chai"
 +++
 
 I've been on the [Transmission](https://transmissionbt.com) project for a long time
@@ -50,7 +50,7 @@ I'm going to use
 Mocha is a JavaScript testing framework,
 Chai is a BDD/TDD syntax that can be used in Mocha, and
 Sinon is a tool for adding mocks and spies to tests.
-These can all be for testing in browsers and in Node;
+These can all run together both in browsers and in Node;
 for now,
 I'll start with Node.
 
@@ -271,9 +271,10 @@ Excellent! We have a working test environment!
 
 In the next post in this series,
 I'll finally get to adding real tests.
-I'll also look at some limitations of testing in Node
+I'll also look at some limitations of faking a browser environment
 and what alternatives exist.
 
 Other articles on Mocha and Chai that I found useful:
 [1](https://nicolas.perriault.net/code/2013/testing-frontend-javascript-code-using-mocha-chai-and-sinon/)
 [2](https://www.sitepoint.com/unit-test-javascript-mocha-chai/)
+[3](http://chaijs.com/api/bdd/)
