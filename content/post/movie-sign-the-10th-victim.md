@@ -14,11 +14,20 @@ Every now and then I get together with a group of friends for Bad Movie Night. T
 
 We've gone through a lot of the "popular" bad movies -- [The Room](https://en.wikipedia.org/wiki/The_Room_(film)), [Birdemic](https://en.wikipedia.org/wiki/Birdemic:_Shock_and_Terror), [Manos](https://en.wikipedia.org/wiki/Manos:_The_Hands_of_Fate) -- but then we came across an odd pick: 1965's [The 10th Victim](https://en.wikipedia.org/wiki/The_10th_Victim). I'd never heard of it, and while it's not a bad movie, it's also not *not* a bad movie either...
 
-The 10th Victim is an early version of the [Deadly Game](http://tvtropes.org/pmwiki/pmwiki.php/Main/DeadlyGame) trope that would be later used in Death Race 2000 (1975), The Running Man (1987), and The Hunger Games (2012). In The 10th Victim, people around the world tune in to watch The Big Hunt, where two players are chosen at random by computer to be hunter and victim. Each must try to kill the other first. The Big Hunt is very popular, so kills in its service are legal. Standard B-Movie stuff, but the ["Amusing ourselves to death"](https://en.wikipedia.org/wiki/Amusing_Ourselves_to_Death) theme was pretty new to film in the 1960s. The idea was still fresh decades later when Death Race 2000 and The Running Man followed this movie's template of using the Deadly Game trope to satirize TV entertainment, and this movie does it better than either of them.
+The 10th Victim is an early version of the [Deadly Game](http://tvtropes.org/pmwiki/pmwiki.php/Main/DeadlyGame) trope.
+Audiences around the world tune in to watch The Big Hunt, where two players are chosen at random to be hunter and victim.
+Each must try to kill the other first. The Big Hunt is the planet's most popular sport, so kills in its service are legal.
+Standard stuff --
+Death Race 2000 (1975), The Running Man (1987), and The Hunger Games (2012) would repeat the premise later --
+but, when this was made in 1965, had it been done in film before?
+It may be the first to comment on commercialism with the Deadly Game trope:
+the game has its sponsors, and the hunted recites them smilingly to the camera right before his execution.
+This mix was still fresh decades later for Death Race 2000 and The Running Man,
+and this movie does it better than either.
 
 # It *Looks* Great...
 
-The first thing you'll notice when watching is that the film flat-out *looks* sensational.
+One thing you'll notice when watching is that the film flat-out *looks* sensational.
 It's one of the "grooviest" films you'll ever see,
 with scene after scene of 60s Pop eye candy:
 
@@ -53,21 +62,20 @@ this is essential viewing.
 
 # ...but What Am I Looking At?
 
-The 10th Victim was not a commercial success. Audiences didn't seem to know what to make of it.
-It's a dark comedy,
-but's also science fiction,
-a romantic comedy,
-a sometimes-serious drama,
-and even kind of a Eurospy movie..
-It doesn't always wear all these hats well:
-it drags in the middle, seemingly not knowing whether to be a romance or satire at times.
+The 10th Victim was not a commercial success.
+It's hard at times to know what to make of it:
+it's a dark comedy,
+science fiction,
+kind of a Eurospy film,
+and -- sometimes -- serious drama.
+it drags in the middle, and it's not always clear whether the movie is trying to be funny, serious, or both.
 
-But even then, the two leads
+The two leads
 [Marcello Mastroianni](https://en.wikipedia.org/wiki/Marcello_Mastroianni) and 
-[Ursula Andress](https://en.wikipedia.org/wiki/Ursula_Andress) keep things interesting.
-Mastroianni had starred in La Dolce Vita a few years before,
+[Ursula Andress](https://en.wikipedia.org/wiki/Ursula_Andress) keep things interesting though.
+Mastroianni had starred in La Dolce Vita a few years before.
 Andress was fresh off being the first "Bond Girl" in Dr. No,
-and they do have a screen chemistry that fits this strange movie well.
+and their screen presence keeps this strange movie going.
 
 # Conclusion
 
