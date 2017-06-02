@@ -250,11 +250,11 @@ It's not a big test, but it's the next step on our path --
 if `npm test` passes now, it means we have:
 
   1. npm running
-  2. npm finding Mocha and invoking it
-  3. Mocha loading the Chai syntax, the Sinon mock tools, and jsdom
-  4. Mocha finding our local assets, e.g. formatter.js, and loading them
-  5. Loaded part of Formatter's outside world, e.g. jQuery's '$' global variable
-  6. Faked part of Formatter's outside world, e.g. the Transmission global variable
+  2. npm found and invoked Mocha
+  3. Mocha found and loaded Chai, Sinon, and jsdom
+  4. Mocha found and loaded e.g. formatter.js
+  5. Our test loaded part of Formatter's outside world, e.g. jQuery's '$' global variable
+  6. Our test faked part of Formatter's outside world, e.g. the Transmission global variable
 
 What happens if we run it?
 
@@ -269,10 +269,9 @@ What happens if we run it?
 
 Excellent! We have a working test environment!
 
-In the next post in this series,
-I'll finally get to adding real tests.
-I'll also look at some limitations of faking a browser environment
-and what alternatives exist.
+The next step will be to actually write Transmission-specific tests.
+I'll do that in the next post in the series,
+and also look at some limitations of faking a browser environment and what alternatives exist.
 
 Other articles on Mocha and Chai that I found useful:
 [1](https://nicolas.perriault.net/code/2013/testing-frontend-javascript-code-using-mocha-chai-and-sinon/)
