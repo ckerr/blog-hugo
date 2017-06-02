@@ -1,11 +1,11 @@
 +++
 banner = "/banners/10th-victim.jpg"
-categories = []
+categories = ["movies"]
 date = "2017-05-10T09:37:02-05:00"
 description = ""
 images = []
 menu = ""
-tags = [ "movies"]
+tags = ["movies"]
 title = "Movie Sign: The 10th Victim"
 
 +++

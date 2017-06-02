@@ -1,6 +1,6 @@
 +++
 banner = "banners/backlit-keyboard.jpg"
-categories = []
+categories = ["development"]
 date = "2017-05-31T19:21:36-05:00"
 description = ""
 images = []
